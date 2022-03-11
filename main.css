@@ -11,9 +11,11 @@
 }
 
 
+/* 0px로 설정 */
 @media (min-width: 0px){
     /* 팀장 자리 가운데로 설정 */
     .justify-content-md-center {
         justify-content: center!important;
     }
+
 }
