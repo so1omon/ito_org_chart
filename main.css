@@ -1,0 +1,19 @@
+#container{
+    display: flex;
+}
+#team-leader{
+    padding: 20px;
+}
+.big-div{
+    float:left;
+    margin-right: 10px;
+    border-right: 1px solid black;
+}
+
+
+@media (min-width: 0px){
+    /* 팀장 자리 가운데로 설정 */
+    .justify-content-md-center {
+        justify-content: center!important;
+    }
+}
