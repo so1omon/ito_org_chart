@@ -1,0 +1,48 @@
+#container{
+    position:relative;
+    background-color: rgb(25, 25, 49);
+}
+.main{
+    display: flex;
+    background-color:white; 
+    padding:20px;
+    width:100%; 
+    height:80%;
+    position:absolute;
+    top:100px;
+}
+.department{
+    float: left;
+    /* border 추후에 지울 예정 */
+    border: 1px solid black;
+    width: 50%;
+}
+.header{
+    margin: 10px;
+    display: flex;
+}
+
+#first-dept>.header{
+    border:1px solid blue;
+}
+#second-dept>.header{
+    border:1px solid orange;
+}
+#team-leader{
+    padding: 20px;
+}
+.big-div{
+    float:left;
+    margin-right: 10px;
+    border-right: 1px solid black;
+}
+
+
+/* 0px로 설정 */
+@media (min-width: 0px){
+    /* 팀장 자리 가운데로 설정 */
+    .justify-content-md-center {
+        justify-content: center!important;
+    }
+
+}
