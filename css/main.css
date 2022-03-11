@@ -1,3 +1,15 @@
+body{
+	font-family: 나눔스퀘어, 'NanumSquare', sans-serif;
+    margin:0;
+    height:100%;
+}
+div{
+    box-sizing: border-box;
+}
+p,h4,h3,h2,h1,span{
+    /* 글씨 이뿌게 */
+	transform : rotate(0.04deg); 
+}
 #container{
     position:relative;
     background-color: rgb(25, 25, 49);
@@ -11,31 +23,68 @@
     position:absolute;
     top:100px;
 }
-.department{
+.office{
     float: left;
     /* border 추후에 지울 예정 */
-    border: 1px solid black;
     width: 50%;
 }
 .header{
+    position:relative;
     margin: 10px;
-    display: flex;
+    padding:20px;
+    letter-spacing:1px;
 }
+.office-name{
+    float:left;
+    position:absolute;
+    top:2px;
+}
+.office-head{
+    float:right;
+    position:absolute;
+    top:8px;
+    right:20px;
 
-#first-dept>.header{
+}
+#first-office>.header{
     border:1px solid blue;
 }
-#second-dept>.header{
+#second-office>.header{
     border:1px solid orange;
 }
-#team-leader{
-    padding: 20px;
+.dept-container{
+    display: flex;
+    height: 90%;
 }
-.big-div{
+.department{
     float:left;
-    margin-right: 10px;
-    border-right: 1px solid black;
+    /* width = 100 / 팀 갯수 */
+    width: 40%;
+    text-align: center;
 }
+.department>span{
+    letter-spacing: 4px;
+    display: inline-block;
+}
+.department>.dept-table{
+    /* table 넣을 div */
+    margin-top: 10px;
+    height: 95%;
+    border-right: 1px solid gray;
+}
+#first-office>.dept-container>.department>.dept-name{
+    padding: 10px;
+    border-bottom: 5px solid rgb(16, 16, 153);
+}
+#second-office>.dept-container>.department>.dept-name{
+    padding: 10px;
+    border-bottom: 5px solid orangered;
+}
+#second-office>.dept-container>#last-dept>#last-table{
+    /* 두번째 office의 맨마지막 팀 border 삭제  */
+    border-right: none;
+}
+
 
 
 /* 0px로 설정 */
