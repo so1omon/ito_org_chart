@@ -28,6 +28,7 @@ p,h4,h3,h2,h1,span{
     /* border 추후에 지울 예정 */
     width: 50%;
 }
+
 .header{
     position:relative;
     margin: 10px;
@@ -84,8 +85,70 @@ p,h4,h3,h2,h1,span{
     /* 두번째 office의 맨마지막 팀 border 삭제  */
     border-right: none;
 }
+.cell{
 
+    width: 61.98px;
+    height: 80px;
+    margin: 0px;
+    
+}
+.col-6{
+    /* 가운데 정렬  */
+    /* 나머지 col-4,3,2...도 적용해야 함. */
+     justify-content: center;
+     align-items: center;
+}
+.memInfo{
 
+    
+}
+.memName{
+    
+
+}
+.memPos{
+    margin-top: -5px; display: block;
+}
+.black-background{
+    background: rgba(0,0,0,0.5);
+    position:fixed;
+    /* position:fixed - 브라우저 화면에 딱 달라붙는 요소를 만들어낼 수 있습니다. */
+    z-index:5;
+    /* z-index는 position 속성이 들어간 요소들에 쓸 수 있는 속성이며 값이 클 수록 맨 앞으로 가져옵니다 */
+    width:100%;
+    height:100%;
+    display:none;
+    margin-top: -1200px;
+    /* opacity:0; 또는 visibility:hidden */
+}
+.white-background{
+    background:white;
+    width:80%;
+    height: 70%;
+    margin:150px auto;
+    padding:20px;
+    border-radius:5px;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+
+}
+.left-container{
+    float:left;
+    width: 50%;
+    height: 100%;
+    
+    margin: 10px;
+    border: 1px solid black;
+}
+.right-container{
+    float:left;
+    margin: 10px;
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+
+}
 
 /* 0px로 설정 */
 @media (min-width: 0px){
