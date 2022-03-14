@@ -123,14 +123,20 @@ p,h4,h3,h2,h1,span{
 }
 .white-background{
     background:white;
-    width:80%;
-    height: 70%;
-    margin:150px auto;
+    width:55%;
+    height: 50%;
+    margin:250px auto;
     padding:20px;
-    border-radius:5px;
+    border-radius:0.5rem;
     display: flex;
+    position:relative;
     justify-content: center;
-     align-items: center;
+    align-items: center;
+}
+.btn-container{
+    position: absolute;
+    top: 10px;
+    right: 10px;
 
 }
 .left-container{
@@ -139,17 +145,36 @@ p,h4,h3,h2,h1,span{
     height: 100%;
     
     margin: 10px;
-    border: 1px solid black;
+
 }
 .right-container{
     float:left;
+    border-radius: 0.5rem;
     margin: 10px;
-    width: 50%;
+    width: 70%;
     height: 100%;
-    border: 1px solid black;
 
 }
+.tag_name{
+    display:inline-block;
+    width: 30%;
+    border-radius: 0.5rem;
+    padding: 5px;
+    background: rgb(10, 10, 30);
+    color: white;
+    text-align: center;
+}
+.detail-container{
+    margin-top:30px;
+    margin-left:30px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
 
+.tag_info{
+    padding: 20px;
+}
 /* 0px로 설정 */
 @media (min-width: 0px){
     /* 팀장 자리 가운데로 설정 */
