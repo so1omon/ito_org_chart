@@ -60,7 +60,6 @@ p,h4,h3,h2,h1,span{
 .department{
     float:left;
     /* width = 100 / 팀 갯수 */
-    width: 40%;
     text-align: center;
 }
 .department>span{

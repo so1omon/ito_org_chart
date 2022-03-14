@@ -70,7 +70,7 @@
                                       </div>
                                       
                                  </div>
-                                 <div class="row justify-content-md-center g-2 p-3" id="1-team-row" >
+                                 <div class="row justify-content-md-center g-2 p-3" id="mem-row" >
                                     <!-- 사람 수대로 col 삽입. 한행당 2열인 경우 --> 
                                    
                                 </div>
@@ -90,7 +90,7 @@
                                       </div>
                                       
                                  </div>
-                                 <div class="row justify-content-md-center g-2 p-3" id="2-team-row" >
+                                 <div class="row justify-content-md-center g-2 p-3" id="mem-row" >
                                     <!-- 사람 수대로 col 삽입. 한행당 2열인 경우 --> 
                                    
                                 </div>
@@ -111,7 +111,7 @@
                                       </div>
                                       
                                  </div>
-                                 <div class="row justify-content-md-center g-2 p-3" id="3-team-row" >
+                                 <div class="row justify-content-md-center g-2 p-3" id="mem-row" >
                                     <!-- 사람 수대로 col 삽입. 한행당 2열인 경우 --> 
                                    
                                 </div>
@@ -131,7 +131,7 @@
                                       </div>
                                       
                                  </div>
-                                 <div class="row justify-content-md-center g-2 p-3" id="4-team-row" >
+                                 <div class="row justify-content-md-center g-2 p-3" id="mem-row" >
                                     <!-- 사람 수대로 col 삽입. 한행당 2열인 경우 --> 
                                    
                                 </div>
@@ -161,7 +161,7 @@
                                       </div>
                                       
                                  </div>
-                                 <div class="row justify-content-md-center g-2 p-3" id="5-team-row" >
+                                 <div class="row justify-content-md-center g-2 p-3" id="mem-row" >
                                     <!-- 사람 수대로 col 삽입. 한행당 2열인 경우 --> 
                                    
                                 </div>
@@ -181,7 +181,7 @@
                                       </div>
                                       
                                  </div>
-                                 <div class="row justify-content-md-center g-2 p-3" id="6-team-row" >
+                                 <div class="row justify-content-md-center g-2 p-3" id="mem-row" >
                                     <!-- 사람 수대로 col 삽입. 한행당 2열인 경우 --> 
                                    
                                 </div>
@@ -201,7 +201,7 @@
                                       </div>
                                       
                                  </div>
-                                 <div class="row justify-content-md-center g-2 p-3" id="7-team-row" >
+                                 <div class="row justify-content-md-center g-2 p-3" id="mem-row" >
                                     <!-- 사람 수대로 col 삽입. 한행당 2열인 경우 --> 
                                    
                                 </div>
@@ -214,11 +214,52 @@
         </div>
     </div>
     <script>
+
+        //임시 dept_info(db에서 받아올 값)
+        var dept_info = 
+        {'해외마케팅팀':2,'국내관광팀':2,'스마트관광팀':4,
+        '마이스뷰로':2,'고객홍보팀':2,'전략기획팀':2,'경영지원팀':4};
+
+        var dept_name=[];
+
+
+
         $(document).ready(function(){
+            
+            for(var i=0;i<$('.dept-name').length;i++){
+                dept_name.push($('.dept-name').eq(i).text());
+            }
+            console.log(dept_name); //dept_name = ['해외마케팅팀','국내관광팀','스마트관광팀','마이스뷰로,'고객홍보팀','전략기획팀','경영지원팀']
+
             $(document).on('click','.cell',function(){
                 //클릭하면 모달창 뜸
                 $('.black-background').show().animate({marginTop:'0px'});
             }); 
+
+            // 1. 페이지 로드시 각 팀에 table 구현
+            var keys = Object.keys(dept_info);
+            var col_num = Object.values(dept_info); 
+            console.log(keys);    //db에서 key값 가져오기
+            console.log(col_num);  //db에서 value값 가져오기
+
+            for(var i=0;i<keys.length;i++){
+                //key 수 대로 돌리면서
+                for(var j=0;j<$('.dept-name').length;j++){
+                    if(keys[i]==$('.dept-name').eq(j).text())
+                    {
+                        console.log(keys[i]+'의 col 수 : '+col_num[i]);
+                        var dpt = j;  //dept의 번호
+                        var num = col_num[i];  
+                        //$('.dept-name').eq(j).text(`${dpt}의 col수  :  ${col_num[i]}`);
+                      
+                        //col 수에 따라서 4*col_num[i] 의 table 구성
+                        makeCell(dpt,num);
+                    }
+                    else{
+                    }
+                }
+            }
+
             
         })
 
@@ -250,9 +291,30 @@
 
         //전체 컨테이너 width height 설정
         $('#container').css({"width": screen.width,"height":screen.height});
-        window.onload=function(){
-            //DB에서 인원수 받아와서 만들기
-            make2Cell(8,3);
+        
+
+
+        //각 팀에 4행 col=? 로 table 구성(dept_info : {'팀이름':'col 수'})
+        function makeCell(dpt_num,col_num)
+        {
+            //dpt_num = department의 번호
+            //col_num = 열의 수
+           
+                for(var i=0;i<4;i++)
+                {
+                    for(var j=0;j<col_num;j++)
+                    {
+                        var cell = `<div class="col-${12/col_num} " id="cell-${i}">
+                            <div class=" border bg-light cell"></div>
+                          </div>`;
+                
+                          console.log($('#mem-row').length);
+                          $('.dept-table').children('#mem-row').eq(dpt_num).append(cell);  
+                    }
+                }
+                
+            
+    
         }
 
         // 임시 load
@@ -283,9 +345,8 @@
            }
 
         }
-        $('.memName').on('click',function(){
-            console.log('클릭');
-        })
+        
+
     </script>
 </body>
 </html>
