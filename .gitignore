@@ -9,3 +9,6 @@ test.js
 test.html
 sessions/
 dept_info.js
+
+./db_connect.js
+./login_info.js
